@@ -1,0 +1,50 @@
+﻿@model IEnumerable<VeterinaryClinic.Models.Appointment>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Management/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Randevular</h1>
+
+<p>
+    <a asp-action="Create">Yeni Randevu Oluştur</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Animal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AppointmentDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Reason)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Animal)  
+
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AppointmentDate)  
+
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Reason)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Düzenle</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Detaylar</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Sil</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

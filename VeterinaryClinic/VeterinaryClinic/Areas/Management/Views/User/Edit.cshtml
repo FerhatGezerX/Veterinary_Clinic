@@ -1,0 +1,42 @@
+﻿@model VeterinaryClinic.Models.User
+@{
+    ViewData["Title"] = "User";
+    Layout = "~/Areas/Management/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="row">
+    <div class="col-12">
+        <div class="card border-top border-0 border-4 border-dark">
+            <div class="card-body p-5">
+                <div class="card-title text-center">
+                    <h5 class="mb-5 mt-2 text-dark">Eğitmen Düzenle</h5>
+                </div>
+                <hr>
+                <form class="row g-3" method="post">
+                    <input type="hidden" asp-for="Id" />
+                    <input type="hidden" asp-for="Id" />
+                    <div class="col-12">
+                        <label asp-for="Appointments" class="form-label">Randevu</label>
+                        <select class="form-select mb-3" asp-for="Appointments">
+                            <option value="true">Katıldı</option>
+                            <option value="false">Katılmadı</option>
+                        </select>
+                    </div>
+                    <div class="col-12">
+                        <label asp-for="Status" class="form-label">Durumu</label>
+                        <select class="form-select mb-3" asp-for="Status">
+                            <option value="true">Aktif</option>
+                            <option value="false">Pasif</option>
+                        </select>
+                    </div>
+                    <div class="col-12">
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-dark btn-lg px-5">Kaydet</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div> 

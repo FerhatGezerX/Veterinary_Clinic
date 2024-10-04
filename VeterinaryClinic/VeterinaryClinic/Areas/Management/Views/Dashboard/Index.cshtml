@@ -1,0 +1,125 @@
+﻿@model VeterinaryClinic.Areas.Management.Models.DashboardViewModel
+@{
+    Layout = "~/Areas/Management/Views/Shared/_Layout.cshtml";
+}
+<h1>Raporlarınız</h1>
+
+<div class="row">
+    <div class="col-12 col-lg-3">
+        <div class="card radius-15 bg-voilet">
+            <div class="card-body">
+                <div class="d-flex align-items-center">
+                    <div>
+                        <h2 class="mb-0 text-white">@Model.UserCount <i class="bx bxs-up-arrow-alt font-14 text-white"></i> </h2>
+                    </div>
+                    <div class="ms-auto font-35 text-white">
+                        <i class="bx bx-cart-alt"></i>
+                    </div>
+                </div>
+                <div class="d-flex align-items-center">
+                    <div>
+                        <p class="mb-0 text-white">Kullanıcı Sayısı</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-lg-3">
+        <div class="card radius-15 bg-primary-blue">
+            <div class="card-body">
+                <div class="d-flex align-items-center">
+                    <div>
+                        <h2 class="mb-0 text-white">@Model.AnimalCount <i class="bx bxs-down-arrow-alt font-14 text-white"></i> </h2>
+                    </div>
+                    <div class="ms-auto font-35 text-white">
+                        <i class="bx bx-support"></i>
+                    </div>
+                </div>
+                <div class="d-flex align-items-center">
+                    <div>
+                        <p class="mb-0 text-white">Hasta Sayısı</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-lg-3">
+        <div class="card radius-15 bg-rose">
+            <div class="card-body">
+                <div class="d-flex align-items-center">
+                    <div>
+                        <h2 class="mb-0 text-white">@Model.TreatmentCount <i class="bx bxs-up-arrow-alt font-14 text-white"></i> </h2>
+                    </div>
+                    <div class="ms-auto font-35 text-white">
+                        <i class="bx bx-tachometer"></i>
+                    </div>
+                </div>
+                <div class="d-flex align-items-center">
+                    <div>
+                        <p class="mb-0 text-white">Hayvan Sayısı</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-lg-3">
+        <div class="card radius-15 bg-sunset">
+            <div class="card-body">
+                <div class="d-flex align-items-center">
+                    <div>
+                        <h2 class="mb-0 text-white">@Model.FranchiseCount <i class="bx bxs-up-arrow-alt font-14 text-white"></i> </h2>
+                    </div>
+                    <div class="ms-auto font-35 text-white">
+                        <i class="bx bx-user"></i>
+                    </div>
+                </div>
+                <div class="d-flex align-items-center">
+                    <div>
+                        <p class="mb-0 text-white">Bayi Sayısı</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12 col-lg-12">
+        <div class="card radius-15 bg-dark">
+            <div class="card-body">
+                <div class="d-flex align-items-center">
+                    <div>
+                        <h2 class="mb-0 text-white">@Model.LastCreatedUser?.FullName <i class="bx bxs-up-arrow-alt font-14 text-white"></i> </h2>
+                        <h4 class="text-white">@Model.LastCreatedUser?.CreatedDate.ToString("dd MMMM yyyy hh:mm:ss")</h4>
+                    </div>
+                    <div class="ms-auto font-35 text-white">
+                        <i class="bx bx-cart-alt"></i>
+                    </div>
+                </div>
+                <div class="d-flex align-items-center">
+                    <div>
+                        <p class="mb-0 text-white">Son Kayıt Tarihi</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<table>
+    <thead>
+        <tr>
+            <th>İsim Soyisim</th>
+            <th>Kayıt Tarihi</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.LastCreatedUsers)
+        {
+            <tr>
+                <td>@item.FullName</td>
+                <td>@item.CreatedDate.ToString("dd MM yyyy")</td>
+            </tr>
+        }
+    </tbody>
+</table>

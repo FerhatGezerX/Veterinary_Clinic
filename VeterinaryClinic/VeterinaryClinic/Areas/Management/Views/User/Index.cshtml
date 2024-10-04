@@ -1,0 +1,62 @@
+﻿@model IEnumerable<VeterinaryClinic.Models.User>
+@{
+    ViewData["Title"] = "User";
+    Layout = "~/Areas/Management/Views/Shared/_Layout.cshtml";
+}
+
+<a class="btn btn-success" asp-area="Management" asp-controller="User" asp-action="Create">Ekle</a>
+
+<div class="card radius-15">
+    <div class="card-body">
+        <div class="card-title">
+            <h4 class="mb-0">Kategoriler</h4>
+        </div>
+        <hr>
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">Clinic Adı</th>
+                        <th scope="col">Kullanıcı Adı</th>
+                        <th scope="col">Tedavi Durumu</th> 
+                        <th scope="col">#</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model) {
+                        <tr>
+                            <td>
+                                @item.Animals.Count
+                            </td>
+                            <td>@item.Animals.Count</td>
+                            <td>
+                                @if (item.Status) {
+                                    <span>
+                                        Tedavi Yapıldı
+                                    </span>
+                                }
+                                else {
+                                    <span>Tedavi Yapılmadı</span>
+                                }
+                            </td>
+                            <td>
+                                @if (item.Status) {
+                                    <span>Aktif</span>
+                                }
+                                else {
+                                    <span>Pasif</span>
+                                }
+                            </td>
+                            <td> 
+                                <a class="btn btn-primary" asp-area="Management"
+                                   asp-controller="User" asp-action="Edit"
+                                   asp-route-courseid="@item.Phone"
+                                   asp-route-userid="@item.Status">Düzenle</a> 
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

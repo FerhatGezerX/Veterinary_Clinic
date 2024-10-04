@@ -1,0 +1,44 @@
+﻿@model VeterinaryClinic.Models.User
+@{
+    Layout = "~/Areas/Management/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-12">
+        <div class="card border-top border-0 border-4 border-dark">
+            <div class="card-body p-5">
+                <div class="card-title text-center">
+                    <h5 class="mb-5 mt-2 text-dark">Klinik & Hayvan Ekle</h5>
+                </div>
+                <hr>
+                <form class="row g-3" method="post">
+
+                    <div class="col-12">
+                        <label asp-for="Id">Animal</label>
+                        <select asp-for="Id" asp-items="@ViewBag.UserId" class="single-select"></select>
+                        <span class="text-danger" asp-validation-for="Id"></span>
+                    </div>
+					 
+                    <div class="col-12">
+                        <label asp-for="Animals">Clinic</label>
+                        <select asp-for="Appointments" asp-items="@ViewBag.Id" class="form-control"></select>
+                        <span class="text-danger" asp-validation-for="Id"></span>
+                    </div>
+
+                    <div class="col-12">
+                        <label asp-for="Animals" class="form-label">Durumu</label>
+                        <select class="form-select mb-3" asp-for="Animals">
+                            <option value="true">Hasta</option>
+                            <option value="false">Tedavi</option>
+                        </select>
+                    </div> 
+                    <div class="col-12">
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-dark btn-lg px-5">Kaydet</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div> 

@@ -1,0 +1,21 @@
+﻿@model VeterinaryClinic.Areas.Management.Models.ReportViewModel
+
+<h1>Bayiler</h1>
+<table>
+    <thead>
+        <tr>
+            <th>Telefon</th>
+            <th>Tarih</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Franchises)
+        {
+        <td>@item.Phone</td>
+        <td>@item.CreatedDate</td>
+        }
+    </tbody>
+</table>
+
+<hr />
+
